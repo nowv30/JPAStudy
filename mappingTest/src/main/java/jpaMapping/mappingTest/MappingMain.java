@@ -41,14 +41,14 @@ public class MappingMain {
 			//----------------------------
 			
 			//2. 객체지향 모델링------------------------
-			//팀저장
+			//팀수정
 			Team team = new Team();
-			team.setName("TeamB");
+			team.setName("newTeam");
 			em.persist(team);
 			
-			//회원저장
+			//회원수정
 			Member member = new Member();
-			member.setUsername("Member2");
+			member.setUsername("newMember");
 			member.setTeam(team);//단방향 연관관계 설정, 잠조 저장
 			
 			//회원조회
