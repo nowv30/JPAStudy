@@ -25,4 +25,6 @@ public class Member {
 	private String street;
 	
 	private String zipcode;
+	
+	
 }

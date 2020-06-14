@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 
@@ -14,11 +16,13 @@ public class OrderItem {
 	@Id @GeneratedValue @Column(name="ORDER_ITEM_ID")
 	private long id;
 	
-	@Column(name="ORDER_ID")
-	private long orderId;
+	@ManyToOne//다대일 관계
+	@JoinColumn(name="ORDER_ID")
+	private Order order;
 	
-	@Column(name="ITEM_ID")
-	private long itemId;
+	@ManyToOne//다대일관계
+	@JoinColumn(name="ITEM_ID")
+	private Item item;
 	
 	private int orderPrice;
 	
