@@ -24,6 +24,7 @@ public class Member {
 //	@Column(name="TEAM_ID")
 //	private long teamId;
 	
+	
 	//멤버입장에서Many, 팀입장에서One
 	//Many => One 방향
 	@ManyToOne
