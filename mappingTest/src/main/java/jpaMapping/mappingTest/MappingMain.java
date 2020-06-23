@@ -38,8 +38,6 @@ public class MappingMain {
 			//연관관계 주인에 값 설정
 			member.setTeam(team);
 			
-			member.setTeam(team);
-			
 			em.persist(member);
 
 			tx.commit();

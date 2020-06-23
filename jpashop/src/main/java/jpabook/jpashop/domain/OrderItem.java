@@ -27,6 +27,11 @@ public class OrderItem {
 	private int orderPrice;
 	
 	private int count;
+
+	public void add(OrderItem orderItem) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
