@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -41,10 +42,8 @@ public class Member {
 	@OneToOne
 	@JoinColumn(name="LOCKER_ID")
 	private Locker locker;
-	//실무에서 다대다 매핑을 사용하지 않는다.
-	//연결 테이블, 중간테이블(Member_Product)이 단순히 연결만 하고 끝나지 않음
-	//주문시간 수량 같은 데이터가 추가로 들어갈 수 있는데, 연결테이블에는 매핑 정보만 들어간다.		//연결 테이블용 엔티티를 직접 추가하는 것이 좋다(@ManyToMany => @OneToMany, @ManyToOne)
-	@ManyToMany
-	@JoinTable(name="MEMBER_PRODUCT")
-	private List<Product> products = new ArrayList<>();
+	
+	@OneToMany(mappedBy="member")
+	private List<MemberProduct> memberProducts = new ArrayList<>();
+	
 }
