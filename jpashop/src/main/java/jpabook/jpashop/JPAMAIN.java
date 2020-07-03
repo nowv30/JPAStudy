@@ -24,12 +24,12 @@ public class JPAMAIN {
 			
 			//예시코드 : 위의 양방향 관계 없이 코드를 짤 수 있다.
 			//Order에 입력한 List를 사용하지 않아도 된다.
-			Order order = new Order();
-			em.persist(order);
-			
-			OrderItem orderItem = new OrderItem();
-			orderItem.setOrder(order);
-			em.persist(orderItem);
+//			Order order = new Order();
+//			em.persist(order);
+//			
+//			OrderItem orderItem = new OrderItem();
+//			orderItem.setOrder(order);
+//			em.persist(orderItem);
 			
 			tx.commit();
 		} catch(Exception e) {

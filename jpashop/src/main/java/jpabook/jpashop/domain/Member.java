@@ -22,6 +22,9 @@ public class Member {
 	@Column(name="MEMBER_ID")
 	private long id;
 	
+	@OneToMany(mappedBy = "member")
+	private List<Order> orders = new ArrayList<Order>();//관례상 ArrayList로 쓴다. 데이터 없이 입력해서 널포인트 에러 생기지 않는다.
+	
 	private String name;
 	
 	private String city;
@@ -30,6 +33,4 @@ public class Member {
 	
 	private String zipcode;
 	
-	@OneToMany(mappedBy = "member")
-	private List<Order> orders = new ArrayList<Order>();//관례상 ArrayList로 쓴다. 데이터 없이 입력해서 널포인트 에러 생기지 않는다. 
 }
