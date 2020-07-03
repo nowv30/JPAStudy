@@ -19,7 +19,6 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="M_MEMBER")
 public class Member {
 	@Id @GeneratedValue
 	@Column(name="MEMBER_ID")
