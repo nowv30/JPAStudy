@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 //InheritanceType.SINGLE_TABLE이면 @DiscriminatorColumn이 자동 적용(dtype생성)
 //InheritanceType.TABLE_PER_CLASS를 하면 추상클래스인 Item테이블은 생기지 않는다. 
 //단 데이터를 찾을 때 item 테이블이 없으므로 id값을 모든 테이블(Movie, Album, Book)에서 찾아야 한다.
