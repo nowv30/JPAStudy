@@ -16,7 +16,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="S_MEMBER")
-public class Member {
+public class Member extends BaseEntity{
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)//기본값, 생략가능
 	@Column(name="MEMBER_ID")

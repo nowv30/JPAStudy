@@ -17,7 +17,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Category {
+public class Category extends BaseEntity{
 	
 	@Id @GeneratedValue
 	@Column(name="CATEGORY_ID")

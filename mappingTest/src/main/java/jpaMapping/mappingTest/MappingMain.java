@@ -7,8 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import jpaMapping.mappingTest.domain.Member;
-import jpaMapping.mappingTest.domain.Movie;
-import jpaMapping.mappingTest.domain.Team;
+
 
 public class MappingMain {
 
@@ -19,20 +18,31 @@ public class MappingMain {
 		tx.begin();
 		
 		try {
-			
-			Movie movie = new Movie();
-			movie.setDiractor("aaa");
-			movie.setActor("bbb");
-			movie.setName("ccc");
-			movie.setPrice(10000);
+			Member member1 = new Member();
+			member1.setUsername("member1");
+			em.persist(member1);
 
-			em.persist(movie);
+			Member member2 = new Member();
+			member2.setUsername("member2");
+			em.persist(member2);
+			
 			em.flush();
 			em.clear();
 			
-			Movie findMovie = em.find(Movie.class, movie.getId());
-			System.out.println("findMovie="+findMovie);
+
+			Member m1 = em.find(Member.class, member1.getId());
+			Member m2 = em.getReference(Member.class, member2.getId());
 			
+			System.out.println("m1==m2: "+(m1 instanceof Member));
+			System.out.println("m1==m2: "+(m2 instanceof Member));
+			
+//			Member findMember = em.getReference(Member.class, member1.getId());			
+			//출력되는 값은 프록시라 하는 가짜 엔티티가 출력된다.
+			//findMember= class jpaMapping.mappingTest.domain.Member$HibernateProxy$Zi2bbZbV
+//			System.out.println("findMember= "+findMember.getClass());
+			
+//			System.out.println("findMember.Id= "+findMember.getId());
+//			System.out.println("findMember.User="+findMember.getUsername());
 			tx.commit();
 			
 		} catch (Exception e) {
